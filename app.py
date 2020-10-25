@@ -50,6 +50,18 @@ def multiple_nums(number1, number2):
     return f'{number1} times {number2} is {int(number1) * int(number2)}.'
 
 
+@app.route('/sayntimes/<word>/<n>')
+def say_n_times(word, n):
+    """Takes 2 arguements, the word and the number of times to repeat it. The repeated message is displayed"""
+    if not n.isdigit():
+        return "Invalid input. Please try again by entering a word and a number!"
+
+    final_string = word
+    for cycle in range(int(n)):
+        final_string += f' {word}'
+    return final_string
+
+
 if __name__ == '__main__':
     app.config['ENV'] = 'development'
     app.run(debug=True)

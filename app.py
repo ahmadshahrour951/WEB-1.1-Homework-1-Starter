@@ -2,6 +2,7 @@
 # TODO: Follow the assignment instructions to complete the required routes!
 # (And make sure to delete this TODO message when you're done!)
 from flask import Flask
+from random import randint
 
 app = Flask(__name__)
 
@@ -85,6 +86,20 @@ def alt_capitilize_word(word):
         is_lower = not is_lower
 
     return alt_word
+
+
+@app.route('/dicegame')
+def play_dice():
+    """Randomly assigns the user an integer between 1 - 6. If 6 is found then the user wins! otherwise the user loses!"""
+    rand_int_gen = randint(1, 6)
+    gen_str = f'You rolled a {rand_int_gen}. '
+
+    if rand_int_gen != 6:
+        gen_str += 'You lost!'
+        return gen_str
+
+    gen_str += 'You won!'
+    return gen_str
 
 
 if __name__ == '__main__':

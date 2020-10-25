@@ -71,6 +71,22 @@ def reverse_word(word):
     return reversed_word
 
 
+@app.route('/strangecaps/<word>')
+def alt_capitilize_word(word):
+    """Takes a string and capilizes every other word using a for loop and a flag"""
+    alt_word = ''
+    is_lower = True
+
+    for char in word:
+        if is_lower:
+            alt_word += char.lower()
+        else:
+            alt_word += char.upper()
+        is_lower = not is_lower
+
+    return alt_word
+
+
 if __name__ == '__main__':
     app.config['ENV'] = 'development'
     app.run(debug=True)

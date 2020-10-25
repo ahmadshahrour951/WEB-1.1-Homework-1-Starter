@@ -24,6 +24,10 @@ def myfavanimalpage():
     return "Peregrine falcon's are wayyyy faster than you!"
 
 
+@app.route('/animal/<users_animal>')
+def favorite_animal(users_animal):
+    """Display a message to the user that changes based on their favorite animal."""
+    return f'Wow, {users_animal} is my favorite animal, too!'
 if __name__ == '__main__':
     app.config['ENV'] = 'development'
     app.run(debug=True)

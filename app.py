@@ -42,6 +42,14 @@ def mad_stories(adjective, noun):
     return f' The {adjective} {noun} is running over the lazy dog!'
 
 
+@app.route('/multiply/<number1>/<number2>')
+def multiple_nums(number1, number2):
+    """Takes in 2 numbers and displays it's product with a message"""
+    if not number1.isdigit() or not number2.isdigit():
+        return "Invalid inputs. Please try again by entering 2 numbers!"
+    return f'{number1} times {number2} is {int(number1) * int(number2)}.'
+
+
 if __name__ == '__main__':
     app.config['ENV'] = 'development'
     app.run(debug=True)

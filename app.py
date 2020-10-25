@@ -62,6 +62,15 @@ def say_n_times(word, n):
     return final_string
 
 
+@app.route('/reverse/<word>')
+def reverse_word(word):
+    """Takes a string and reverses it"""
+    reversed_word = ''
+    for char_ind in range(len(word) - 1, -1, -1):
+        reversed_word += word[char_ind]
+    return reversed_word
+
+
 if __name__ == '__main__':
     app.config['ENV'] = 'development'
     app.run(debug=True)

@@ -36,6 +36,12 @@ def favorite_dessert(users_dessert):
     return f'How did you know I liked {users_dessert}?'
 
 
+@app.route('/madlibs/<adjective>/<noun>')
+def mad_stories(adjective, noun):
+    """Takes in 2 strings (adj and noun) and displays a funny story using them!"""
+    return f' The {adjective} {noun} is running over the lazy dog!'
+
+
 if __name__ == '__main__':
     app.config['ENV'] = 'development'
     app.run(debug=True)
